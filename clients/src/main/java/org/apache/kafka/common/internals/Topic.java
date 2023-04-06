@@ -73,6 +73,13 @@ public class Topic {
         }
     }
 
+    public static boolean isInAutoCreateTopicsBlacklist(String autoCreateTopicsBlacklistRegex, String topic) {
+        if (null == autoCreateTopicsBlacklistRegex) {
+            return false;
+        }
+        return Pattern.matches(autoCreateTopicsBlacklistRegex, topic);
+    }
+
     public static boolean isInternal(String topic) {
         return INTERNAL_TOPICS.contains(topic);
     }
